@@ -47,7 +47,7 @@ public class SpringSecurityBootstrapRestJsApplication {
         roleService.saveRole(setStartRoles);
         user1.setRoles(roleService.getAllRoles());
         userService.addUser(user1);
-        user2.setRoles(roleService.getAllRoles().stream().limit(1).collect(Collectors.toSet()));
+        user2.setRoles(setStartRoles.stream().filter(r -> r.getName() == "ROLE_USER").collect(Collectors.toSet()));
         userService.addUser(user2);
     }
 
