@@ -167,7 +167,7 @@ async function editUser(modal, id) {
                 <label th:for="surname" class="font-weight-bold">Last Name<input class="form-control" type="text" id="surname" value="${user.surname}">
                 <label th:for="email" class="font-weight-bold">Email<input class="form-control" id="email" type="text" value="${user.email}">
                 <label th:for="login" class="font-weight-bold">Login<input class="form-control" type="text" id="login" value="${user.login}">
-                <label th:for="password" class="font-weight-bold">Password<input class="form-control" type="password" id="password">
+                <label th:for="password" class="font-weight-bold">Password<input class="form-control" type="password" id="password" value="${user.password}">
                 <h1></h1>
                 <label th:for="password" class="font-weight-bold">Role<br>
                 <select class="form-control" id="mySelectId" name="mySelect" multiple size="2">
@@ -269,7 +269,7 @@ async function AddUser() {
         </select>
     `;
     select.append(bodyFilling);
-    $('#addNewUserButton').click(async () =>  {
+    $('#addNewUserButton').on('click', async () =>  {
         let addUserForm = $('#defaultSomeForm')
         let name = addUserForm.find('#AddNewUserName').val().trim();
         let surname = addUserForm.find('#AddNewUserSurname').val().trim();
@@ -299,5 +299,6 @@ async function AddUser() {
         addUserForm.find('#AddNewUserEmail').val('');
         addUserForm.find('#AddNewUserLogin').val('');
         addUserForm.find('#AddNewUserPassword').val('');
+
     })
 }
